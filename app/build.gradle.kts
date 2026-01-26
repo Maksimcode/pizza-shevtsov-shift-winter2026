@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.shevtsov_pizza_shift_winter2026"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.shevtsov_pizza_shift_winter2026"
@@ -56,4 +56,21 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+
+    // OkHttp
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+
+    // Gson
+    implementation(libs.gson)
+
+    // ViewModel для Compose
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // LiveData для Compose
+    implementation(libs.androidx.runtime.livedata)
 }

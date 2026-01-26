@@ -4,6 +4,7 @@ import com.example.shevtsov_pizza_shift_winter2026.data.api.PizzaApiService
 import com.example.shevtsov_pizza_shift_winter2026.data.repository.PizzaRepositoryImpl
 import com.example.shevtsov_pizza_shift_winter2026.domain.repository.PizzaRepository
 import com.example.shevtsov_pizza_shift_winter2026.domain.usecase.GetPizzasUseCase
+import com.example.shevtsov_pizza_shift_winter2026.setSslSocketFactory
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -32,6 +33,7 @@ object NetworkModule {
         .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
         .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
         .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
+        .setSslSocketFactory()
         .build()
 
     val retrofit: Retrofit = Retrofit.Builder()

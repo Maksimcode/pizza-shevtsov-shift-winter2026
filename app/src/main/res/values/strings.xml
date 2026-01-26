@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">shevtsov-pizza-shift-winter2026</string>
+    <string name="error_title">Ошибка</string>
+    <string name="retry_button">Повторить</string>
 </resources>

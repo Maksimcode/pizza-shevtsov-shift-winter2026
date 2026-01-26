@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.shevtsov_pizza_shift_winter2026"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.shevtsov_pizza_shift_winter2026"
@@ -67,4 +67,10 @@ dependencies {
 
     // Gson
     implementation(libs.gson)
+
+    // ViewModel для Compose
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // LiveData для Compose
+    implementation(libs.androidx.runtime.livedata)
 }

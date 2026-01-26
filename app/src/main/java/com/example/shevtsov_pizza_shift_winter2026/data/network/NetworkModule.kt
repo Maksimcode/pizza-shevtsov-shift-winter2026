@@ -20,7 +20,6 @@ private const val READ_TIMEOUT = 10L
 object NetworkModule {
 
     private val gson: Gson = GsonBuilder()
-        .setLenient()
         .create()
 
     private val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
@@ -40,7 +39,4 @@ object NetworkModule {
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
-
-    private val pizzaApi: PizzaApiService = retrofit.create(PizzaApiService::class.java)
-    private val pizzaRepository: PizzaRepository = PizzaRepositoryImpl(pizzaApi)
 }

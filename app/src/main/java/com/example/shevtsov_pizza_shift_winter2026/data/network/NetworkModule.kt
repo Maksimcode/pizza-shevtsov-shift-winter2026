@@ -44,5 +44,4 @@ object NetworkModule {
 
     private val pizzaApi: PizzaApiService = retrofit.create(PizzaApiService::class.java)
     private val pizzaRepository: PizzaRepository = PizzaRepositoryImpl(pizzaApi)
-    val getPizzasUseCase = GetPizzasUseCase(pizzaRepository)
 }

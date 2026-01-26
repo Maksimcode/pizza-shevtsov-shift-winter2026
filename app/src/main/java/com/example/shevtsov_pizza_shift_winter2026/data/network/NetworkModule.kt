@@ -3,7 +3,6 @@ package com.example.shevtsov_pizza_shift_winter2026.data.network
 import com.example.shevtsov_pizza_shift_winter2026.data.api.PizzaApiService
 import com.example.shevtsov_pizza_shift_winter2026.data.repository.PizzaRepositoryImpl
 import com.example.shevtsov_pizza_shift_winter2026.domain.repository.PizzaRepository
-import com.example.shevtsov_pizza_shift_winter2026.domain.usecase.GetPizzasUseCase
 import com.example.shevtsov_pizza_shift_winter2026.setSslSocketFactory
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

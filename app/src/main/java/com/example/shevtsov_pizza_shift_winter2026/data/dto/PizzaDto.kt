@@ -1,13 +1,13 @@
-package com.example.shevtsov_pizza_shift_winter2026.domain.model
+package com.example.shevtsov_pizza_shift_winter2026.data.dto
 
-data class Pizza(
+data class PizzaDto(
     val id: String,
     val name: String,
-    val ingredients: List<Ingredient>,
-    val toppings: List<Topping>,
+    val ingredients: List<IngredientDto>,
+    val toppings: List<ToppingDto>,
     val description: String,
-    val sizes: List<Size>,
-    val doughs: List<Dough>,
+    val sizes: List<SizeDto>,
+    val doughs: List<DoughDto>,
     val calories: Int,
     val protein: String,
     val totalFat: String,

@@ -12,7 +12,7 @@ import com.example.shevtsov_pizza_shift_winter2026.domain.model.Pizza
 @Composable
 fun PizzaCatalogContent(
     pizzas: List<Pizza>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     LazyColumn(
         modifier = modifier.fillMaxSize(),
@@ -20,26 +20,29 @@ fun PizzaCatalogContent(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(pizzas) { pizza ->
-            PizzaItem(pizza = pizza)
+            PizzaItem(
+                name = pizza.name,
+                description = pizza.description
+            )
         }
     }
 }
 
 @Composable
-private fun PizzaItem(pizza: Pizza) {
+private fun PizzaItem(
+    name: String,
+    description: String,
+) {
     Card(
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            Text(
-                text = pizza.name,
-                style = MaterialTheme.typography.titleLarge
-            )
+            TextTitleLarge(text = name)
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = pizza.description,
+                text = description,
                 style = MaterialTheme.typography.bodyMedium
             )
         }

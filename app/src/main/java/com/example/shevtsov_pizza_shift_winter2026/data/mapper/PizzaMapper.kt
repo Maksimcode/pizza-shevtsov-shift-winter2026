@@ -12,6 +12,8 @@ import com.example.shevtsov_pizza_shift_winter2026.domain.model.Pizza
 import com.example.shevtsov_pizza_shift_winter2026.domain.model.Size
 import com.example.shevtsov_pizza_shift_winter2026.domain.model.Topping
 
+private const val IMAGE_BASE_URL = "https://shift-intensive.ru/api"
+
 fun CatalogResponseDto.toDomain(): List<Pizza> = catalog.map { it.toDomain() }
 
 fun PizzaDto.toDomain(): Pizza {
@@ -33,7 +35,7 @@ fun PizzaDto.toDomain(): Pizza {
         isGlutenFree = isGlutenFree,
         isNew = isNew,
         isHit = isHit,
-        img = img
+        img = IMAGE_BASE_URL + img
     )
 }
 

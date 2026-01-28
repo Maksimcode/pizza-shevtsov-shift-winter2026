@@ -2,4 +2,7 @@
     <string name="app_name">shevtsov-pizza-shift-winter2026</string>
     <string name="error_title">Ошибка</string>
     <string name="retry_button">Повторить</string>
+    <string name="back_button_description">Назад</string>
+
+    <string name="pizza_header">Пицца</string>
 </resources>

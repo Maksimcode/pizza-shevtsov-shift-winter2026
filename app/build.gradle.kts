@@ -73,4 +73,17 @@ dependencies {
 
     // LiveData для Compose
     implementation(libs.androidx.runtime.livedata)
+
+    // Koin core + Android
+    implementation(libs.koin.android)
+
+    // Koin для Compose
+    implementation(libs.koin.androidx.compose)
+
+    // Coil для загрузки изображений
+    implementation(libs.coil.compose)
+
+    // Icons
+    implementation(libs.androidx.material.icons.extended)
+
 }

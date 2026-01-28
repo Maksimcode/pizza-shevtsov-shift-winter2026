@@ -18,7 +18,7 @@ fun PizzaCatalogScreen(
     modifier: Modifier = Modifier,
     viewModel: PizzaCatalogViewModel = viewModel {
         PizzaCatalogViewModel(PizzaProvider.getPizzasUseCase)
-    }
+    },
 ) {
     val state by viewModel.state.observeAsState(PizzaCatalogState.Initial)
 
@@ -32,12 +32,14 @@ fun PizzaCatalogScreen(
             is PizzaCatalogState.Loading -> {
                 FullScreenProgressIndicator()
             }
+
             is PizzaCatalogState.Error -> {
                 PizzaCatalogError(
                     message = currentState.error,
-                    onRetry = { viewModel.loadPizzas() }
+                    onRetry = viewModel::loadPizzas
                 )
             }
+
             is PizzaCatalogState.Content -> {
                 PizzaCatalogContent(pizzas = currentState.pizzas)
             }

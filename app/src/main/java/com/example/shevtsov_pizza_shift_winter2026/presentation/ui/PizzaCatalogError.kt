@@ -13,7 +13,7 @@ import com.example.shevtsov_pizza_shift_winter2026.R
 fun PizzaCatalogError(
     message: String,
     onRetry: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier.fillMaxSize(),

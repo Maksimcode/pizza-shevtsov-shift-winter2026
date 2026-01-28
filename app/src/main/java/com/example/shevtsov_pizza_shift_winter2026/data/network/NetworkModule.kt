@@ -1,11 +1,13 @@
 package com.example.shevtsov_pizza_shift_winter2026.data.network
 
+import coil.ImageLoader
 import com.example.shevtsov_pizza_shift_winter2026.data.api.PizzaApiService
 import com.example.shevtsov_pizza_shift_winter2026.setSslSocketFactory
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -36,6 +38,12 @@ val networkModule = module {
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
             .setSslSocketFactory()
+            .build()
+    }
+
+    single {
+        ImageLoader.Builder(androidContext())
+            .okHttpClient(get<OkHttpClient>())
             .build()
     }
 

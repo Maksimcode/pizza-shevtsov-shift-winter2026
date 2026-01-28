@@ -80,4 +80,10 @@ dependencies {
     // Koin для Compose
     implementation(libs.koin.androidx.compose)
 
+    // Coil для загрузки изображений
+    implementation(libs.coil.compose)
+
+    // Icons
+    implementation(libs.androidx.material.icons.extended)
+
 }

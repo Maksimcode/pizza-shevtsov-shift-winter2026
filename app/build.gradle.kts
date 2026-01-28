@@ -73,4 +73,11 @@ dependencies {
 
     // LiveData для Compose
     implementation(libs.androidx.runtime.livedata)
+
+    // Koin core + Android
+    implementation(libs.koin.android)
+
+    // Koin для Compose
+    implementation(libs.koin.androidx.compose)
+
 }

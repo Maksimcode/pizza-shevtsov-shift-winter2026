@@ -1,24 +1,23 @@
 package com.example.shevtsov_pizza_shift_winter2026.presentation.ui
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.shevtsov_pizza_shift_winter2026.di.PizzaProvider
+import androidx.compose.ui.Modifier
 import com.example.shevtsov_pizza_shift_winter2026.presentation.state.PizzaCatalogState
 import com.example.shevtsov_pizza_shift_winter2026.presentation.viewmodel.PizzaCatalogViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun PizzaCatalogScreen(
     modifier: Modifier = Modifier,
-    viewModel: PizzaCatalogViewModel = viewModel {
-        PizzaCatalogViewModel(PizzaProvider.getPizzasUseCase)
-    },
+    viewModel: PizzaCatalogViewModel = koinViewModel(),
 ) {
     val state by viewModel.state.observeAsState(PizzaCatalogState.Initial)
 

@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.shevtsov_pizza_shift_winter2026.presentation.ui.PizzaCatalogScreen
+import com.example.shevtsov_pizza_shift_winter2026.presentation.ui.navigation.MainScreen
 import com.example.shevtsov_pizza_shift_winter2026.ui.theme.Shevtsovpizzashiftwinter2026Theme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    PizzaCatalogScreen()
+                    MainScreen()
                 }
             }
         }

@@ -1,5 +1,6 @@
-package com.example.shevtsov_pizza_shift_winter2026.presentation.ui
+package com.example.shevtsov_pizza_shift_winter2026.presentation.ui.screens.catalog
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -19,23 +20,30 @@ import androidx.compose.ui.unit.dp
 import coil.ImageLoader
 import coil.compose.AsyncImage
 import com.example.shevtsov_pizza_shift_winter2026.domain.model.Pizza
+import com.example.shevtsov_pizza_shift_winter2026.domain.model.minPrice
+import com.example.shevtsov_pizza_shift_winter2026.presentation.ui.components.TextDescriptionSmall
+import com.example.shevtsov_pizza_shift_winter2026.presentation.ui.components.TextPriceFrom
+import com.example.shevtsov_pizza_shift_winter2026.presentation.ui.components.TextTitleMedium
 import org.koin.compose.koinInject
 
 @Composable
 fun PizzaCatalogContent(
     pizzas: List<Pizza>,
     modifier: Modifier = Modifier,
+    onPizzaClick: (String) -> Unit = {},
 ) {
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-        verticalArrangement = Arrangement.spacedBy(24.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(pizzas) { pizza ->
             PizzaItem(
                 name = pizza.name,
                 description = pizza.description,
                 imageUrl = pizza.img,
+                priceFrom = pizza.minPrice().toInt(),
+                onClick = { onPizzaClick(pizza.id) }
             )
         }
     }
@@ -46,12 +54,15 @@ private fun PizzaItem(
     name: String,
     description: String,
     imageUrl: String,
+    priceFrom: Int,
+    onClick: () -> Unit,
     imageLoader: ImageLoader = koinInject(),
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .clickable { onClick() }
+            .padding(vertical = 12.dp),
     ) {
         AsyncImage(
             model = imageUrl,
@@ -61,15 +72,17 @@ private fun PizzaItem(
                 .size(116.dp)
         )
 
-        Spacer(modifier = Modifier.width(24.dp))
+        Spacer(modifier = Modifier.width(20.dp))
 
         Column(
             modifier = Modifier
                 .weight(1f),
         ) {
             TextTitleMedium(text = name)
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(4.dp))
             TextDescriptionSmall(text = description)
+            Spacer(modifier = Modifier.height(8.dp))
+            TextPriceFrom(text = "от $priceFrom ₽")
         }
     }
 }

@@ -1,11 +1,8 @@
-package com.example.shevtsov_pizza_shift_winter2026.presentation.ui
+package com.example.shevtsov_pizza_shift_winter2026.presentation.ui.screens.catalog
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -20,6 +17,7 @@ import org.koin.androidx.compose.koinViewModel
 fun PizzaCatalogScreen(
     modifier: Modifier = Modifier,
     viewModel: PizzaCatalogViewModel = koinViewModel(),
+    onPizzaClick: (String) -> Unit = {},
 ) {
     val state by viewModel.state.observeAsState(PizzaCatalogState.Initial)
 
@@ -27,34 +25,27 @@ fun PizzaCatalogScreen(
         viewModel.loadPizzas()
     }
 
-    Scaffold(
-        topBar = {
-            PizzaTopBar(
-                showBackButton = false,
-            )
-        },
-    ) { paddingValues ->
-        Column(
-            modifier = modifier
-                .fillMaxSize()
-                .padding(paddingValues),
-        ) {
-            when (val currentState = state) {
-                is PizzaCatalogState.Initial,
-                is PizzaCatalogState.Loading -> {
-                    FullScreenProgressIndicator()
-                }
+    Box(
+        modifier = modifier.fillMaxSize(),
+    ) {
+        when (val currentState = state) {
+            is PizzaCatalogState.Initial,
+            is PizzaCatalogState.Loading -> {
+                FullScreenProgressIndicator()
+            }
 
-                is PizzaCatalogState.Error -> {
-                    PizzaCatalogError(
-                        message = currentState.error,
-                        onRetry = viewModel::loadPizzas
-                    )
-                }
+            is PizzaCatalogState.Error -> {
+                PizzaCatalogError(
+                    message = currentState.error,
+                    onRetry = viewModel::loadPizzas
+                )
+            }
 
-                is PizzaCatalogState.Content -> {
-                    PizzaCatalogContent(pizzas = currentState.pizzas)
-                }
+            is PizzaCatalogState.Content -> {
+                PizzaCatalogContent(
+                    pizzas = currentState.pizzas,
+                    onPizzaClick = onPizzaClick,
+                )
             }
         }
     }

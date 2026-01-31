@@ -1,7 +1,6 @@
 package com.example.shevtsov_pizza_shift_winter2026.presentation.ui
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -61,6 +60,21 @@ fun TextTitleBold(
         color = MaterialTheme.colorScheme.onBackground,
         fontWeight = FontWeight.Bold,
         lineHeight = 32.sp,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun TextPriceFrom(
+    text: String,
+    modifier: Modifier = Modifier,
+){
+    Text(
+        text = text,
+        fontSize = 16.sp,
+        color = MaterialTheme.colorScheme.onBackground,
+        fontWeight = FontWeight.Medium,
+        lineHeight = 24.sp,
         modifier = modifier,
     )
 }

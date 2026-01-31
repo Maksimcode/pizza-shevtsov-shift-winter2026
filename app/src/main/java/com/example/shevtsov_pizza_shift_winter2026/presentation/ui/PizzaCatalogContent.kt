@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import coil.ImageLoader
 import coil.compose.AsyncImage
 import com.example.shevtsov_pizza_shift_winter2026.domain.model.Pizza
+import com.example.shevtsov_pizza_shift_winter2026.domain.model.minPrice
 import org.koin.compose.koinInject
 
 @Composable
@@ -36,6 +37,7 @@ fun PizzaCatalogContent(
                 name = pizza.name,
                 description = pizza.description,
                 imageUrl = pizza.img,
+                priceFrom = pizza.minPrice().toInt(),
             )
         }
     }
@@ -47,6 +49,7 @@ private fun PizzaItem(
     description: String,
     imageUrl: String,
     imageLoader: ImageLoader = koinInject(),
+    priceFrom: Int,
 ) {
     Row(
         modifier = Modifier
@@ -70,6 +73,8 @@ private fun PizzaItem(
             TextTitleMedium(text = name)
             Spacer(modifier = Modifier.height(8.dp))
             TextDescriptionSmall(text = description)
+            Spacer(modifier = Modifier.height(8.dp))
+            TextPriceFrom(text = "от $priceFrom ₽")
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.shevtsov_pizza_shift_winter2026.presentation.ui
+package com.example.shevtsov_pizza_shift_winter2026.presentation.ui.screens.catalog
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*

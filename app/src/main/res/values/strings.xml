@@ -5,4 +5,11 @@
     <string name="back_button_description">Назад</string>
 
     <string name="pizza_header">Пицца</string>
+
+    <string name="bottom_nav_menu">Пицца</string>
+    <string name="bottom_nav_orders">Заказы</string>
+    <string name="bottom_nav_cart">Корзина</string>
+    <string name="bottom_nav_profile">Профиль</string>
+
+    <string name="pizza_detail">Детали пиццы</string>
 </resources>
